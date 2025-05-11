@@ -1,26 +1,39 @@
 # gcp-data-dude-tool
 gcp-data-dude-tool
 
+## 📁 Projektstruktur
+
+```text
 .
-├─ backend/
-│  ├─ app/
-│  │  ├─ main.py          # FastAPI-Entry-Point
-│  │  ├─ deps.py          # Auth-, BQ- & Gemini-Utils (Platzhalter)
-│  │  └─ models.py        # Pydantic-Schemas
+├─ backend
+│  ├─ app
+│  │  ├─ __init__.py          # optional, falls du Packages nutzen willst
+│  │  ├─ main.py              # FastAPI-Entry-Point
+│  │  ├─ deps.py              # Auth-, BQ-, Gemini-Utilities
+│  │  └─ models.py            # Pydantic-Schemas
 │  ├─ requirements.txt
-│  ├─ Dockerfile
-│  └─ dev.Dockerfile      # schlanker Image für Codespaces
-├─ frontend/
-│  ├─ src/
+│  ├─ Dockerfile              # Production Image (distroless)
+│  └─ dev.Dockerfile          # Hot-Reload Image für Codespaces
+│
+├─ frontend
+│  ├─ src
 │  │  ├─ App.tsx
-│  │  ├─ components/
-│  │  │  ├─ Chat.tsx
-│  │  │  ├─ DataTable.tsx
-│  │  │  └─ Chart.tsx
+│  │  ├─ index.css
+│  │  └─ components
+│  │     ├─ Chat.tsx
+│  │     ├─ DataTable.tsx
+│  │     └─ Chart.tsx
 │  ├─ index.html
 │  ├─ vite.config.ts
 │  └─ package.json
-├─ .github/
-│  └─ workflows/
-│     ├─ build.yml        # CI (Docker build + Cloud Run deploy)
-└─ README.md
+│
+├─ .devcontainer
+│  └─ devcontainer.json       # Codespaces-Config (Python + Node)
+│
+├─ .github
+│  └─ workflows
+│     └─ build.yml            # CI/CD → Cloud Run
+│
+├─ .gitignore
+└─ README.md                  # Dieses Dokument
+
